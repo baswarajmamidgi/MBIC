@@ -35,16 +35,21 @@ public class SplashScreen extends AppCompatActivity {
 
             String title = getIntent().getExtras().getString("title");
             String content = getIntent().getExtras().getString("content");
+            if(title==null || content==null){
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
 
             Log.i("log",title+content);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(SplashScreen.this);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(SplashScreen.this);
             builder.setTitle(title);
             builder.setCancelable(false);
             builder.setMessage(content);
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
                     startActivity(new Intent(SplashScreen.this,MainActivity.class));
                     finishAffinity();
                 }

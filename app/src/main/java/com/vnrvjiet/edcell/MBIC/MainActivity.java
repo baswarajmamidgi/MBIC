@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent=getIntent();
 
 
 
@@ -129,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+                name.setVisibility(View.VISIBLE);
+                Log.i("log","nothign selected");
 
             }
         });
@@ -290,6 +291,8 @@ public class MainActivity extends AppCompatActivity {
                     finishAffinity();
                 }
             });
+
+            dialogs.dismiss();
 
              dialog=alertDialog.create();
             dialog.show();

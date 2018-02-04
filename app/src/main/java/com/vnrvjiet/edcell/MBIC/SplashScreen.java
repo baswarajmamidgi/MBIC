@@ -1,10 +1,12 @@
 package com.vnrvjiet.edcell.MBIC;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -35,24 +37,20 @@ public class SplashScreen extends AppCompatActivity {
             String content = getIntent().getExtras().getString("content");
 
             Log.i("log",title+content);
-               Log.i("log",content);
-                final Dialog dialog = new Dialog(SplashScreen.this,R.style.Theme_Dialog);
-                dialog.setContentView(R.layout.notificationview);
-                TextView notificationContent = (TextView) dialog.findViewById(R.id.textview);
-                ImageView cancel = (ImageView) dialog.findViewById(R.id.cancel);
 
-                notificationContent.setText(title+"\n"+content);
+            AlertDialog.Builder builder = new AlertDialog.Builder(SplashScreen.this);
+            builder.setTitle(title);
+            builder.setCancelable(false);
+            builder.setMessage(content);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                    finishAffinity();
+                }
+            });
+            builder.show();
 
-
-                dialog.show();
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        finish();
-                    }
-                });
 
         }else {
 

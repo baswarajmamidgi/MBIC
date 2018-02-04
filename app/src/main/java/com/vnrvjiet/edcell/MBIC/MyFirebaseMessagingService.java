@@ -1,10 +1,13 @@
 package com.vnrvjiet.edcell.MBIC;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.RingtoneManager;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -43,16 +46,37 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.i("log",title +" "+content);
 
         Intent intent = new Intent(MyFirebaseMessagingService.this, SplashScreen.class);
-        intent.putExtra("notification", content);
+        intent.putExtra("title", title);
+        intent.putExtra("content", content);
 
-       // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder notificationBuilder = null;
+
+        String NOTIFICATION_CHANNEL_ID = "MBIC";
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "MBIC", NotificationManager.IMPORTANCE_HIGH);
+
+            // Configure the notification channel.
+            notificationChannel.setDescription("MBIC");
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
+            notificationChannel.enableVibration(true);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
         try {
 
-            notificationBuilder = new NotificationCompat.Builder(this)
+
+            notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_notification)
                     .setContentTitle(URLDecoder.decode(title, "UTF-8"))
                     .setContentText(URLDecoder.decode(content, "UTF-8"))
@@ -65,14 +89,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.i("log",e.getLocalizedMessage());
         }
 
-        if (notificationBuilder != null) {
-            NotificationManager notificationManager =
-                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            assert notificationManager != null;
-            notificationManager.notify(0, notificationBuilder.build());
-        } else {
-            Log.d("log", "failednotificationBuilder");
-        }
+                 notificationManager.notify(0, notificationBuilder.build());
 
     }
 }

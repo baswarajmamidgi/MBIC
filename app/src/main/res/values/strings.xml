@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MBIC</string>
+    <string name="we_re_always_excited_to_hear_from_you_if_you_have_any_feedback_questions_or_concerns_please_connect_with_us_at">We\'re always excited to hear from you! If you have any feedback, questions, or concerns, please connect with us at:</string>
+    <string name="vnr_vjiet">VNR VJIET</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="LOADING_DATA">Loading Data...</string>
+    <string name="NO_INTERNET">No Internet</string>
+
 </resources>

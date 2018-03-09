@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/notifications"
+            android:title="Notifications"
+            android:icon="@drawable/ic_notification"/>
+        <item
+            android:id="@+id/comingevent"
+            android:title="Upcoming Events"
+            android:icon="@drawable/ic_notification" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_notification"
+            android:title="About" />
+
+        <item
+            android:id="@+id/contact"
+            android:icon="@drawable/ic_notification"
+            android:title="Contact" />
+
+
+
+
+    </group>
+
+</menu>

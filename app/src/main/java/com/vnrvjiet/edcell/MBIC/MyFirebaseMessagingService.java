@@ -14,6 +14,8 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import org.json.JSONException;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -33,8 +35,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if(title==null){
             title="New Notification";
         }
+        Mydatabase dataBase=new Mydatabase(this);
 
-
+        // hard coded low risk
+        Log.i("log FirebaseMessaging", title + content);
+        dataBase.insertMessage(title,content);
 
 
         this.sendNotification(image,  title, content, sound);

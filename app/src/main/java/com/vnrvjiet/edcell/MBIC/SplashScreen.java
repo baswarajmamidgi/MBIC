@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -30,38 +32,26 @@ public class SplashScreen extends AppCompatActivity {
         }
 
         */
+        Mydatabase dataBase = new Mydatabase(this);
+
 
         if (getIntent().getExtras() != null) {
 
             String title = getIntent().getExtras().getString("title");
             String content = getIntent().getExtras().getString("content");
-            if(title==null || content==null){
+            if (title == null || content == null) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
 
-            Log.i("log",title+content);
-
-            final AlertDialog.Builder builder = new AlertDialog.Builder(SplashScreen.this);
-            builder.setTitle(title);
-            builder.setCancelable(false);
-            builder.setMessage(content);
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                    startActivity(new Intent(SplashScreen.this,MainActivity.class));
-                    finishAffinity();
-                }
-            });
-            builder.show();
-
-
-        }else {
-
+            Log.i("log", title + content);
+            dataBase.insertMessage(title, content);
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
+
         }
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
 
     }
 

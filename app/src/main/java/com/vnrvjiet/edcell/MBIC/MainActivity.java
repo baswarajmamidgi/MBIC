@@ -4,9 +4,14 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -34,7 +39,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final MediaType FORM_DATA_TYPE
             = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
@@ -55,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.layout_main_activity);
 
         String[] data= {"One","Two","Three","Four","Five"};
         Spinner spinner = (Spinner) findViewById(R.id.participants_spinner);
@@ -196,6 +199,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+
 
     }
 
@@ -215,6 +229,46 @@ public class MainActivity extends AppCompatActivity {
         
         return super.onOptionsItemSelected(item);
     }
+
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+
+            case R.id.notifications: {
+                Intent i = new Intent(MainActivity.this, Notifications.class);
+                startActivity(i);
+                break;
+            }
+
+            case R.id.comingevent: {
+                Intent i = new Intent(MainActivity.this, EventsList.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.about: {
+                Intent i = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.contact: {
+                Intent i = new Intent(MainActivity.this, ContactActivity.class);
+                startActivity(i);
+                break;
+            }
+
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
+
+    }
+
 
 
 

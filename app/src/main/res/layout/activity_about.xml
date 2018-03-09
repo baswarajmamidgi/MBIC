@@ -17,7 +17,6 @@
             android:background="?attr/colorPrimary"
             android:elevation="8dp"
             android:theme="@style/toolbartheme"
-            app:navigationIcon="@drawable/ic_arrow_back"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 

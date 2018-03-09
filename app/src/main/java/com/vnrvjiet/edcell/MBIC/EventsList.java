@@ -4,12 +4,19 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +34,7 @@ public class EventsList extends AppCompatActivity {
     private EventAdapter adapter;
     private DatabaseReference mDatabase;
     private ValueEventListener valueEventListener;
+    private RecyclerView recyclerView;
     private List<EventClass> list;
 
 
@@ -45,21 +53,18 @@ public class EventsList extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mDatabase=database.getReference("upcomingevents");
+        mDatabase=database.getReference("events");
         final ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo info = manager.getActiveNetworkInfo();
         final boolean isconnected = info != null && info.isConnectedOrConnecting();
         final ProgressDialog progressDialog=new ProgressDialog(EventsList.this);
         progressDialog.setMessage(getString(R.string.LOADING_DATA));
-        //progressDialog.show();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        progressDialog.show();
+        recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
         list=new ArrayList<>();
         adapter=new EventAdapter(this,list);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        EventClass eventClass = new EventClass("title", "content");
-        list.add(eventClass);
-        adapter.notifyDataSetChanged();
 
 
         valueEventListener=mDatabase.addValueEventListener(new ValueEventListener() {
@@ -67,10 +72,10 @@ public class EventsList extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
                     Map<String, String> map = (Map)postsnapshot.getValue();
-                    EventClass eventClass = new EventClass("title", "content");
+                    EventClass eventClass = new EventClass(map.get("title"), map.get("content"));
                     list.add(eventClass);
                     adapter.notifyDataSetChanged();
-                   // progressDialog.dismiss();
+                    progressDialog.dismiss();
 
                 }
             }
@@ -124,5 +129,4 @@ public class EventsList extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
     }
-
 }

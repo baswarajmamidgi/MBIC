@@ -11,10 +11,7 @@
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         android:theme="@style/toolbartheme"
-
-        android:elevation="8dp"
-        app:navigationIcon="@drawable/ic_arrow_back" />
-
+        android:elevation="8dp"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"

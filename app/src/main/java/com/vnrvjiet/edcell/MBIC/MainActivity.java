@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static final String SECTION="entry.969258304";
     public static final String IDEA_TITLE="entry.652481584";
     public static final String IDEA="entry.684732879";
+    public static final String PARTICIPANTS="entry.1426881545";
     public static final String URL="https://docs.google.com/forms/d/e/1FAIpQLSc8bq-OzHrvJieDVAdBPp5eO4Hd2Oq8tPbSrby_7DmIWamA7w/formResponse";
     AlertDialog dialog;
 
@@ -191,7 +192,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 }
 
-                post.execute(URL,name.getText().toString(),email.getText().toString(),phone.getText().toString(),roll_number.getText().toString(),branch.getText().toString(),year.getText().toString(),section.getText().toString(),idea_title.getText().toString(),idea_description.getText().toString());
+                String participants_name=name2.getText().toString() + "\n" + name3.getText().toString() +"\n" + name4.getText().toString() +"\n" +name5.getText().toString();
+
+                post.execute(URL,name.getText().toString(),email.getText().toString(),phone.getText().toString(),roll_number.getText().toString(),branch.getText().toString(),year.getText().toString(),section.getText().toString(),idea_title.getText().toString(),idea_description.getText().toString(),participants_name);
 
 
             }
@@ -273,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     private class postdata extends AsyncTask<String,Integer, Boolean>{
-        String name,email,phone,roll_no,branch,year,section,idea_title,idea_description;
+        String name,email,phone,roll_no,branch,year,section,idea_title,idea_description,participantsname;
         final ProgressDialog dialogs = new ProgressDialog(MainActivity.this);
 
 
@@ -308,7 +311,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         "&" + YEAR + "=" + URLEncoder.encode(year,"UTF-8")+
                         "&" + SECTION + "=" + URLEncoder.encode(section,"UTF-8")+
                         "&" + IDEA_TITLE + "=" + URLEncoder.encode(idea_title,"UTF-8")+
-                        "&" + IDEA + "=" + URLEncoder.encode(idea_description,"UTF-8");
+                        "&" + IDEA + "=" + URLEncoder.encode(idea_description,"UTF-8")+
+                        "&" + PARTICIPANTS + "=" + URLEncoder.encode(participantsname,"UTF-8");
             }
             catch (UnsupportedEncodingException ex){
                 result=false;

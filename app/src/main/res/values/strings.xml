@@ -6,5 +6,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="LOADING_DATA">Loading Data...</string>
     <string name="NO_INTERNET">No Internet</string>
+    <string name="todo">TODO</string>
 
 </resources>

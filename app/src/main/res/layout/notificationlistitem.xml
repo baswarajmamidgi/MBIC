@@ -19,13 +19,14 @@
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="140dp"
         android:layout_marginEnd="140dp" />
 
     <TextView
         android:id="@+id/notification_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/notification_title"
         android:layout_marginTop="9dp"
         android:autoLink="all"
@@ -40,5 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/notification_content"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
         android:text="TextView" />
 </RelativeLayout>

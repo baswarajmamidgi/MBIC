@@ -1,5 +1,6 @@
 package com.vnrvjiet.edcell.MBIC;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -86,6 +87,11 @@ public class EventsList extends AppCompatActivity {
         });
 
         recyclerView.setAdapter(adapter);
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
+        alertDialog.setMessage("No Upcoming Events");
+        if(list.isEmpty()){
+            alertDialog.show();
+        }
 
         final Handler handler=new Handler();
         handler.post(new Runnable() {

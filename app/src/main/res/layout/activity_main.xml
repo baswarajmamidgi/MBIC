@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/participants_text"
             android:layout_alignParentEnd="true"
-            android:layout_alignRight="@+id/participants_text"></Spinner>
+            android:layout_alignRight="@+id/participants_text"
+            android:layout_alignParentRight="true"></Spinner>
 
         <EditText
             android:id="@+id/name"

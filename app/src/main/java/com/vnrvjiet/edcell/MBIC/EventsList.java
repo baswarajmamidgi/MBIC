@@ -76,7 +76,7 @@ public class EventsList extends AppCompatActivity {
                     EventClass eventClass = new EventClass(map.get("title"), map.get("content"));
                     list.add(eventClass);
                     adapter.notifyDataSetChanged();
-                    progressDialog.dismiss();
+                    //progressDialog.dismiss();
 
                 }
             }
@@ -90,7 +90,7 @@ public class EventsList extends AppCompatActivity {
         AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
         alertDialog.setMessage("No Upcoming Events");
         if(list.isEmpty()){
-            alertDialog.show();
+            //alertDialog.show();
         }
 
         final Handler handler=new Handler();

@@ -175,14 +175,15 @@
             android:lines="5"
             android:hint="Idea Description"
             android:textColor="@android:color/black" />
+
         <EditText
             android:id="@+id/realie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/idea_description"
-            android:lines="5"
             android:layout_marginTop="15dp"
-            android:hint="How do you realize the idea??"
+            android:hint="How do you realize the idea?"
+            android:lines="5"
             android:textColor="@android:color/black" />
         <EditText
             android:id="@+id/tech"

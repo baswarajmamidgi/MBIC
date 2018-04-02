@@ -32,7 +32,7 @@ public class ContactActivity extends AppCompatActivity {
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","9989478011",null));
+                Intent i=new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","9490746990",null));
                 startActivity(i);
 
             }
@@ -41,7 +41,7 @@ public class ContactActivity extends AppCompatActivity {
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","baswarajmamidgi@gmail.com",null));
+                Intent i=new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","edcell@vnrvjiet.in",null));
                 startActivity(i);
 
             }

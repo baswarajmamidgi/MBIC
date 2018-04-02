@@ -365,4 +365,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onProgressUpdate(values);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

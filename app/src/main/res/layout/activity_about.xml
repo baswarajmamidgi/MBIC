@@ -16,6 +16,8 @@
             android:layout_marginBottom="10dp"
             android:background="?attr/colorPrimary"
             android:elevation="8dp"
+            app:navigationIcon="@drawable/ic_arrow_back"
+
             android:theme="@style/toolbartheme"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
@@ -23,7 +25,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Ed cell description"/>
+            android:text="@string/about_mbic"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

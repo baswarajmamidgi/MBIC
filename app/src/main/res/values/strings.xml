@@ -7,5 +7,14 @@
     <string name="LOADING_DATA">Loading Data...</string>
     <string name="NO_INTERNET">No Internet</string>
     <string name="todo">TODO</string>
+    <string name="about_mbic">
+        <b>My Big Idea Competition (MBIC)\n\n</b>
+        <br>Ø  VNRVJIET ED Cell in association with student’s innovation center organizing My Big Idea Competition (MBIC) on a regular basis with a theme from 2013 on words.\n\n</br>
+        <br>Ø  However, VJIM students are also participating in the competition which will be extended to other nearby colleges also in future.\n\n</br>
+        <br>Ø  A certificate indicating participation and details of prizes won for the idea will be given to all the participants.\n\n</br>
+        <br>Ø  Its objective is to promote innovative thinking among the students and leading to scouting of Business Ideas through MSME Business Incubation support.</br>
+
+    </string>
+
 
 </resources>

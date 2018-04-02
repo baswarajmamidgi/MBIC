@@ -45,15 +45,16 @@ public class EventsList extends AppCompatActivity {
         setContentView(R.layout.activity_eventslist);
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Upcoming Events");
+        setSupportActionBar(toolbar);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-        setSupportActionBar(toolbar);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         mDatabase=database.getReference("events");
         final ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo info = manager.getActiveNetworkInfo();
@@ -71,6 +72,7 @@ public class EventsList extends AppCompatActivity {
         valueEventListener=mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
                     Map<String, String> map = (Map)postsnapshot.getValue();
                     EventClass eventClass = new EventClass(map.get("title"), map.get("content"));

@@ -23,6 +23,58 @@
           }
         },
         {
+          "client_id": "289898592891-eajc7kkro8tjjtaiiv776fomvd2m8009.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vnrvjiet.edcell.MBIC",
+            "certificate_hash": "a41c6b3bd93325b4c774878dd50a65f340a3b816"
+          }
+        },
+        {
+          "client_id": "289898592891-139dsqoouemrjk6abnupdoiv9j4qbhka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5f8eRuNqoKzMgf8aSDLvLeGZp39AK9jo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289898592891-139dsqoouemrjk6abnupdoiv9j4qbhka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289898592891:android:f072a4350a112dee",
+        "android_client_info": {
+          "package_name": "com.vnrvjietedu.edcell.MBIC"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289898592891-ifk60brqcv3i6iaisa40dmbss0cn9qa3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vnrvjietedu.edcell.MBIC",
+            "certificate_hash": "a41c6b3bd93325b4c774878dd50a65f340a3b816"
+          }
+        },
+        {
           "client_id": "289898592891-139dsqoouemrjk6abnupdoiv9j4qbhka.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -21,78 +21,33 @@
     android:layout_below="@+id/toolbar">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp">
-
-        <TextView
-            android:id="@+id/participants_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Number of participants in the Team" />
-
-        <Spinner
-            android:id="@+id/participants_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/participants_text"
-            android:layout_alignParentEnd="true"
-            android:layout_alignRight="@+id/participants_text"
-            android:layout_alignParentRight="true"></Spinner>
 
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/participants_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/participants_text"
-            android:visibility="gone"
             android:hint="Team Lead"
             android:textColor="@android:color/black" />
+
         <EditText
             android:id="@+id/name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:visibility="gone"
             android:layout_below="@+id/name"
-            android:hint="Team Participant 1"
-            android:textColor="@android:color/black" />
-        <EditText
-            android:id="@+id/name3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/name2"
-            android:visibility="gone"
-            android:hint="Team Participant 2"
-            android:textColor="@android:color/black" />
-        <EditText
-            android:id="@+id/name4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:visibility="gone"
-            android:layout_below="@+id/name3"
-            android:hint="Team Participant 3"
-            android:textColor="@android:color/black" />
-        <EditText
-            android:id="@+id/name5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/name4"
-            android:hint="Team Participant 4"
-            android:textColor="@android:color/black" />
+            android:hint='Participants Names Seperate with ","'
+            android:textColor="@android:color/black"
+            android:visibility="visible" />
 
         <EditText
             android:id="@+id/Year"
@@ -101,6 +56,7 @@
             android:layout_below="@+id/name5"
             android:layout_marginTop="15dp"
             android:hint="Year"
+            android:inputType="number"
             android:textColor="@android:color/black" />
 
         <EditText
@@ -140,6 +96,7 @@
             android:layout_below="@+id/rollno"
             android:layout_marginTop="15dp"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/black" />
 
         <EditText
@@ -171,9 +128,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/idea_title"
-            android:layout_marginTop="15dp"
-            android:lines="5"
             android:hint="Idea Description"
+            android:lines="5"
             android:textColor="@android:color/black" />
 
         <EditText
@@ -181,18 +137,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/idea_description"
-            android:layout_marginTop="15dp"
             android:hint="How do you realize the idea?"
             android:lines="5"
             android:textColor="@android:color/black" />
+
         <EditText
             android:id="@+id/tech"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/realie"
-            android:lines="5"
-            android:layout_marginTop="15dp"
             android:hint="Technology Adopted and method of working?"
+            android:lines="5"
             android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
@@ -218,6 +173,6 @@
             android:textColor="@color/white"
             android:theme="@style/MyButton" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>
 </RelativeLayout>

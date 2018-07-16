@@ -14,8 +14,8 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.vnrvjiet.edcell.MBIC.R.layout.activity_contact);
-        Toolbar toolbar= (Toolbar) findViewById(com.vnrvjiet.edcell.MBIC.R.id.toolbar);
+        setContentView(R.layout.activity_contact);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Contact");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,9 +24,9 @@ public class ContactActivity extends AppCompatActivity {
             }
         });
 
-        final ImageView phone= (ImageView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.phone);
-        ImageView email= (ImageView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.email);
-        ImageView facebook= (ImageView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.facebook);
+        final ImageView phone= (ImageView) findViewById(R.id.phone);
+        ImageView email= (ImageView) findViewById(R.id.email);
+        ImageView facebook= (ImageView) findViewById(R.id.facebook);
 
 
         phone.setOnClickListener(new View.OnClickListener() {

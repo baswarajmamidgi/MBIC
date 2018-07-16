@@ -25,7 +25,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
         MyViewHolder(View view){
             super(view);
-            textView = (TextView) view.findViewById(com.vnrvjiet.edcell.MBIC.R.id.details);
+            textView = (TextView) view.findViewById(R.id.details);
 
 
         }
@@ -38,7 +38,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyViewHolder
 
     @Override
     public EventAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemview= LayoutInflater.from(parent.getContext()).inflate(com.vnrvjiet.edcell.MBIC.R.layout.card_event,parent,false);
+        View itemview= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_event,parent,false);
         return new MyViewHolder(itemview);
     }
 

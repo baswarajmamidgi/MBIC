@@ -80,7 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
             notificationBuilder = new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID)
-                    .setSmallIcon(com.vnrvjiet.edcell.MBIC.R.drawable.ic_notifications)
+                    .setSmallIcon(R.drawable.ic_notifications)
                     .setContentTitle(URLDecoder.decode(title, "UTF-8"))
                     .setContentText(URLDecoder.decode(content, "UTF-8"))
                     .setAutoCancel(true)

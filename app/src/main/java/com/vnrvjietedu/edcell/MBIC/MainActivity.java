@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.vnrvjiet.edcell.MBIC.R.layout.layout_main_activity);
+        setContentView(R.layout.layout_main_activity);
 
 
-        Toolbar toolbar=findViewById(com.vnrvjiet.edcell.MBIC.R.id.toolbar);
+        Toolbar toolbar=findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbar.setTitle("MBIC");
         }
@@ -74,18 +74,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
-        teamlead_name=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.name);
-        participants_names=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.name2);
+        teamlead_name=(EditText)findViewById(R.id.name);
+        participants_names=(EditText)findViewById(R.id.name2);
 
-        email=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.email);
-        phone=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.phone);
-        roll_number=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.rollno);
-        branch=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.branch);
-        year=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.Year);
-        section=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.section);
-        idea_title=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.idea_title);
-        idea_description=(EditText)findViewById(com.vnrvjiet.edcell.MBIC.R.id.idea_description);
-        send=(Button)findViewById(com.vnrvjiet.edcell.MBIC.R.id.send);
+        email=(EditText)findViewById(R.id.email);
+        phone=(EditText)findViewById(R.id.phone);
+        roll_number=(EditText)findViewById(R.id.rollno);
+        branch=(EditText)findViewById(R.id.branch);
+        year=(EditText)findViewById(R.id.Year);
+        section=(EditText)findViewById(R.id.section);
+        idea_title=(EditText)findViewById(R.id.idea_title);
+        idea_description=(EditText)findViewById(R.id.idea_description);
+        send=(Button)findViewById(R.id.send);
 
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -159,13 +159,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(com.vnrvjiet.edcell.MBIC.R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, com.vnrvjiet.edcell.MBIC.R.string.navigation_drawer_open, com.vnrvjiet.edcell.MBIC.R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -176,14 +176,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(com.vnrvjiet.edcell.MBIC.R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId()== com.vnrvjiet.edcell.MBIC.R.id.menu_contact){
+        if(item.getItemId()== R.id.menu_contact){
             Toast.makeText(this, "No Activity available", Toast.LENGTH_SHORT).show();
         }
 
@@ -197,23 +197,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
 
-            case com.vnrvjiet.edcell.MBIC.R.id.notifications: {
+            case R.id.notifications: {
                 Intent i = new Intent(MainActivity.this, Notifications.class);
                 startActivity(i);
                 break;
             }
 
-            case com.vnrvjiet.edcell.MBIC.R.id.comingevent: {
+            case R.id.comingevent: {
                 Intent i = new Intent(MainActivity.this, EventsList.class);
                 startActivity(i);
                 break;
             }
-            case com.vnrvjiet.edcell.MBIC.R.id.about: {
+            case R.id.about: {
                 Intent i = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(i);
                 break;
             }
-            case com.vnrvjiet.edcell.MBIC.R.id.contact: {
+            case R.id.contact: {
                 Intent i = new Intent(MainActivity.this, ContactActivity.class);
                 startActivity(i);
                 break;
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(com.vnrvjiet.edcell.MBIC.R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;

@@ -16,7 +16,6 @@ public class Notifications extends AppCompatActivity {
 
     private ArrayList<String> notifications;
     ListView listView;
-    ListView list;
     Mydatabase mydatabase;
     ArrayList<String> messages;
 
@@ -26,32 +25,31 @@ public class Notifications extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.vnrvjiet.edcell.MBIC.R.layout.activity_notifications);
-        Toolbar toolbar= (Toolbar) findViewById(com.vnrvjiet.edcell.MBIC.R.id.toolbar);
+        setContentView(R.layout.activity_notifications);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Notifications");
 
-        listView= (ListView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.notifications_list);
+        listView= (ListView) findViewById(R.id.notifications_list);
         mydatabase=new Mydatabase(this);
 
         final Cursor cursor = mydatabase.getMessages();
         String[] from = {Databasehelper.TITLE, Databasehelper.CONTENT, Databasehelper.DATETIME};
-        int[] to = {com.vnrvjiet.edcell.MBIC.R.id.notification_title, com.vnrvjiet.edcell.MBIC.R.id.notification_content, com.vnrvjiet.edcell.MBIC.R.id.notification_date};
-        list = (ListView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.notifications_list);
-        CursorAdapter adapter = new SimpleCursorAdapter(this, com.vnrvjiet.edcell.MBIC.R.layout.notificationlistitem, cursor, from, to, 0);
-        list.setAdapter(adapter);
+        int[] to = {R.id.notification_title, R.id.notification_content, R.id.notification_date};
+        CursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.notificationlistitem, cursor, from, to, 0);
+        listView.setAdapter(adapter);
         messages = new ArrayList<String>();
         while (!cursor.isAfterLast()) {
             messages.add(cursor.getString(cursor.getColumnIndex(Databasehelper.CONTENT)) + "@!@" + cursor.getString(cursor.getColumnIndex(Databasehelper.DATETIME)));
             cursor.moveToNext();
         }
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String data = messages.get(position);
                 //do on listview  click listener
             }
         });
-        registerForContextMenu(list);
+        registerForContextMenu(listView);
         adapter.notifyDataSetChanged();
 
         setSupportActionBar(toolbar);

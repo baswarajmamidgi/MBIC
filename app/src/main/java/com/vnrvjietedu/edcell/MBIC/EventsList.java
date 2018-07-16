@@ -35,8 +35,8 @@ public class EventsList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.vnrvjiet.edcell.MBIC.R.layout.activity_eventslist);
-        Toolbar toolbar= (Toolbar) findViewById(com.vnrvjiet.edcell.MBIC.R.id.toolbar);
+        setContentView(R.layout.activity_eventslist);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Upcoming Events");
         setSupportActionBar(toolbar);
 
@@ -53,9 +53,9 @@ public class EventsList extends AppCompatActivity {
         NetworkInfo info = manager.getActiveNetworkInfo();
         final boolean isconnected = info != null && info.isConnectedOrConnecting();
         final ProgressDialog progressDialog=new ProgressDialog(EventsList.this);
-        progressDialog.setMessage(getString(com.vnrvjiet.edcell.MBIC.R.string.LOADING_DATA));
+        progressDialog.setMessage(getString(R.string.LOADING_DATA));
         progressDialog.show();
-        recyclerView= (RecyclerView) findViewById(com.vnrvjiet.edcell.MBIC.R.id.recycler_view);
+        recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
         list=new ArrayList<>();
         adapter=new EventAdapter(this,list);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
@@ -106,7 +106,7 @@ public class EventsList extends AppCompatActivity {
             public void run() {
                 if(adapter.getItemCount()==0){
                     if(!isconnected) {
-                        Toast.makeText(EventsList.this, com.vnrvjiet.edcell.MBIC.R.string.NO_INTERNET, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EventsList.this, R.string.NO_INTERNET, Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
                         Toast.makeText(EventsList.this, "No Events Found", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(EventsList.this,MainActivity.class));

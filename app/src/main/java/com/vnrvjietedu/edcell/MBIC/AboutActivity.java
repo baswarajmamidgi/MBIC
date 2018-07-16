@@ -10,8 +10,8 @@ public class AboutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.vnrvjiet.edcell.MBIC.R.layout.activity_about);
-        Toolbar toolbar= (Toolbar) findViewById(com.vnrvjiet.edcell.MBIC.R.id.toolbar);
+        setContentView(R.layout.activity_about);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("About MBIC");
 
         setSupportActionBar(toolbar);
